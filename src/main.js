@@ -8,7 +8,6 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const API_KEY = '41511602-ac1f0d864a13fd01c911f294b';
 const searchForm = document.querySelector('.search-form');
 const galleryContainer = document.querySelector('.gallery');
-const textInputEl = document.querySelector('.search-input');
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
@@ -21,7 +20,7 @@ searchForm.addEventListener('submit', handleFormSubmit);
 
 function handleFormSubmit(event) {
   event.preventDefault();
-  const inputValue = textInputEl.value.trim();
+  const inputValue = event.target.elements.searchQuery.value.trim();
 
   if (!inputValue) {
     iziToast.warning({
